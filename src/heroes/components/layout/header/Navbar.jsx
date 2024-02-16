@@ -116,6 +116,19 @@ export const Navbar = () => {
                 >
                   <Typography textAlign="center">DC</Typography>
                 </MenuItem>
+                <MenuItem
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    color: activeSection === "search" ? "#1976d2" : "black",
+                  }}
+                  onClick={() => {
+                    navigate("search");
+                    setActiveSection("search");
+                  }}
+                >
+                  <Typography textAlign="center">Search</Typography>
+                </MenuItem>
               </Menu>
             </Box>
 

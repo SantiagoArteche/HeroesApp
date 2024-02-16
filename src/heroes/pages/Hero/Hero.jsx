@@ -78,7 +78,7 @@ export const Hero = () => {
             ":hover": { backgroundColor: "#212136" },
           }}
         >
-          Regresar
+          Go Back
         </Button>
       </Grid>
     </Grid>

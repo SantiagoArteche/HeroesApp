@@ -1,7 +1,6 @@
 import { Box, Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 export const HeroCard = ({
-  publisher,
   alter_ego,
   characters,
   superhero,

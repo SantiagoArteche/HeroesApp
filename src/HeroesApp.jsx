@@ -1,17 +1,34 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import { HeroesRoutes } from "./heroes/routes/HeroesRoutes";
 import { LoginPage } from "./auth/pages/LoginPage/LoginPage";
+import { AuthContextProvider } from "./auth/context";
+import { PrivateRoute, PublicRoute, HeroesRoutes } from "./heroes/routes";
 
 function HeroesApp() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/*" element={<HeroesRoutes />} />
-      </Routes>
-    </BrowserRouter>
+    <AuthContextProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/login"
+            element={
+              <PublicRoute>
+                <LoginPage />
+              </PublicRoute>
+            }
+          />
+
+          <Route
+            path="/*"
+            element={
+              <PrivateRoute>
+                <HeroesRoutes />
+              </PrivateRoute>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </AuthContextProvider>
   );
 }
 
